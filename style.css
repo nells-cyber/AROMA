@@ -1,0 +1,945 @@
+/* ============================================
+   AROMA EXPLORER V2 — GLOBAL STYLES
+   Mobile-first, white background, clean typography
+   ============================================ */
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Typography Colors */
+  --black: #000000;
+  --grey-1: #555555;
+  --grey-2: #b3b3b3;
+  --grey-3: #eeeeee;
+  --white: #ffffff;
+  --bg: #ffffff;
+
+  /* Aroma Group Colors (from Supabase) */
+  --group-1: #2F80ED;
+  --group-2: #6F42C1;
+  --group-3: #C2185B;
+  --group-4: #E91E63;
+  --group-5: #D32F2F;
+  --group-6: #F57C00;
+  --group-7: #B6A400;
+  --group-8: #4CAF50;
+  --group-9: #006064;
+
+  /* Taste quarters */
+  --taste-active: #555555;
+  --taste-inactive: #d0d0d0;
+
+  /* Font */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding: 0 16px 60px;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ============================================
+   VIEW SYSTEM
+   ============================================ */
+.view {
+  min-height: 100vh;
+}
+
+/* ============================================
+   SPLASH SCREEN
+   ============================================ */
+#view-splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-circles {
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+  gap: 10px;
+}
+
+.splash-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background-color 0.4s ease;
+}
+
+/* ============================================
+   MAIN MENU
+   ============================================ */
+#view-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.menu-option {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--black);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
+}
+
+.menu-option:active {
+  color: var(--grey-2);
+}
+
+.menu-credit {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  line-height: 1.8;
+  color: var(--grey-2);
+}
+
+/* ============================================
+   CONTENT PAGES (THEORIE / PRAXIS)
+   ============================================ */
+.content-page {
+  padding: 40px 0 60px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.page-body {
+  font-size: 14px;
+  color: var(--black);
+  line-height: 1.7;
+}
+
+.page-body p {
+  margin-bottom: 16px;
+}
+
+.aroma-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 12px;
+}
+
+.aroma-list li {
+  font-size: 14px;
+  color: var(--black);
+  line-height: 1.7;
+  margin-bottom: 0;
+  padding-left: 12px;
+  position: relative;
+}
+
+.aroma-list li::before {
+  content: "";
+}
+
+.page-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin: 24px 0 8px;
+  text-decoration: none;
+}
+
+.taste-list {
+  margin: 12px 0 20px;
+  padding-left: 24px;
+}
+
+.taste-item {
+  font-size: 14px;
+  color: var(--black);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.taste-item strong {
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* Moleküle section title */
+.gruppe-section-title {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+/* Moleküle groups in THEORIE */
+.gruppe-block {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.gruppe-block:last-child {
+  border-bottom: none;
+}
+
+.gruppe-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--black);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.gruppe-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.gruppe-dot-spacer {
+  display: inline-block;
+  width: 14px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.gruppe-descriptor {
+  font-size: 13px;
+  color: var(--grey-2);
+  font-style: normal;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.maillard-note {
+  font-size: 13px;
+  color: var(--grey-2);
+  font-style: normal;
+  padding-left: 24px;
+}
+
+.placeholder-text {
+  color: var(--grey-2);
+  font-style: normal;
+}
+
+/* Page navigation arrow */
+.page-nav {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 0;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px 0 0;
+}
+
+.page-arrow {
+  font-size: 32px;
+  color: var(--grey-1);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
+  padding: 8px 16px;
+}
+
+.page-arrow:active {
+  color: var(--grey-2);
+}
+
+/* ============================================
+   ZUTATEN DIRECTORY
+   ============================================ */
+.zutaten-page {
+  padding: 24px 0 60px;
+}
+
+.zutaten-search-wrap {
+  margin-bottom: 24px;
+}
+
+.zutaten-search {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  background: var(--white);
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.zutaten-search:focus {
+  outline: none;
+  border-color: var(--grey-1);
+}
+
+.zutaten-search::placeholder {
+  color: var(--grey-3);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.zutaten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.zutaten-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 2px;
+  min-width: 0;
+  word-break: break-word;
+  background: #fafafa;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease;
+}
+
+.zutaten-item:active {
+  background: #f0f0f0;
+}
+
+.zutaten-item-name {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--grey-1);
+  line-height: 1.3;
+}
+
+/* Back navigation */
+.back-nav {
+  padding: 16px 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--grey-2);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-nav:active {
+  color: var(--grey-1);
+}
+
+/* --- Header / Ingredient Selector --- */
+#app-header {
+  padding: 24px 0 12px;
+}
+
+.ingredient-selector select {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  background: var(--white);
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ingredient-selector select:focus {
+  outline: none;
+  border-color: var(--grey-1);
+}
+
+/* --- Ingredient Title & Main Description --- */
+.ingredient-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  padding: 8px 0 8px;
+}
+
+.ingredient-main-desc {
+  font-size: 15.5px;
+  color: var(--grey-1);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* --- Listing Sections --- */
+.listing-section {
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.section-headline {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--black);
+}
+
+.toggle-arrow {
+  font-size: 14px;
+  color: var(--grey-2);
+  transition: transform 0.3s ease;
+}
+
+.section-header.open .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* Section body — no longer hidden by default */
+.section-body {
+  /* Always visible charts/content */
+}
+
+.section-body-inner {
+  padding: 16px 0;
+}
+
+/* Section description — hidden, slides under headline */
+.section-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.section-description.open {
+  max-height: 200px;
+}
+
+.section-description p {
+  padding: 8px 0 4px;
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.6;
+  font-style: normal;
+}
+
+/* ============================================
+   GESCHMACK — Squares
+   ============================================ */
+.geschmack-quarters {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 0 8px;
+  gap: 4px;
+}
+
+.quarter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.taste-square {
+  width: 100%;
+  max-width: 48px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  transition: background-color 0.4s ease;
+}
+
+.quarter-label {
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* ============================================
+   MOLEKÜLE — Circle grid
+   ============================================ */
+.molekuele-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.mol-circle {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.4s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mol-circle:active {
+  transform: scale(0.93);
+}
+
+.mol-circle.selected {
+  /* Inset ring — color set via JS */
+}
+
+.mol-circle .mol-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Molecule detail panel */
+.molekuele-detail {
+  padding: 16px 0;
+}
+
+.mol-detail-group-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 2px;
+}
+
+.mol-detail-descriptor {
+  font-size: 13px;
+  color: var(--grey-2);
+  font-style: normal;
+  margin-bottom: 4px;
+}
+
+.mol-detail-underline {
+  height: 3px;
+  width: 66%;
+  border-radius: 2px;
+  margin: 4px 0 16px;
+}
+
+.mol-detail-heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.mol-detail-molecule {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mol-detail-molecule:last-child {
+  border-bottom: none;
+}
+
+.mol-detail-mol-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--grey-1);
+  margin-bottom: 6px;
+}
+
+.mol-detail-props {
+  display: flex;
+  gap: 24px;
+}
+
+.mol-detail-prop {
+  flex: 1;
+}
+
+.mol-detail-prop-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--grey-1);
+  margin-bottom: 2px;
+}
+
+.mol-detail-prop-value {
+  font-size: 12px;
+  color: var(--grey-1);
+  line-height: 1.4;
+}
+
+/* ============================================
+   AROMAENTFALTUNG — Temperature chart
+   ============================================ */
+.aroma-chart {
+  padding: 20px 0 8px;
+  width: 100%;
+  overflow-x: visible;
+  position: relative;
+  touch-action: none;
+}
+
+.aroma-chart-inner {
+  position: relative;
+  width: 100%;
+}
+
+/* Scale numbers */
+.aroma-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 8px;
+  position: relative;
+}
+
+.aroma-scale-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--grey-2);
+  text-align: center;
+}
+
+/* Temperature bars */
+.aroma-bars {
+  position: relative;
+}
+
+.aroma-bar-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.aroma-bar-square {
+  flex: 1;
+  height: 12px;
+  transition: background-color 0.15s ease;
+}
+
+/* Slider */
+.aroma-slider {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  background: var(--grey-2);
+  cursor: grab;
+  z-index: 10;
+  border-radius: 1px;
+}
+
+.aroma-slider:active {
+  cursor: grabbing;
+}
+
+.aroma-slider-handle {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--grey-2);
+  border-radius: 50%;
+}
+
+/* Phase info */
+.aroma-phase-info {
+  padding: 0 0 8px;
+  min-height: 40px;
+}
+
+.aroma-phase-name {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+}
+
+.aroma-phase-desc {
+  font-size: 13px;
+  color: var(--grey-2);
+  font-style: normal;
+  margin-top: 2px;
+}
+
+.aroma-temp-label {
+  font-size: 11px;
+  color: var(--grey-2);
+  margin-top: 4px;
+}
+
+/* ============================================
+   HARMONIE — Ingredient circle rows
+   ============================================ */
+.harmonie-main,
+.harmonie-matches {
+  padding: 0;
+}
+
+.harmonie-row {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.harmonie-row:last-child {
+  border-bottom: none;
+}
+
+.harmonie-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.harmonie-name.main-ingredient {
+  color: var(--grey-1);
+}
+
+.harmonie-name.match-ingredient {
+  color: var(--grey-1);
+}
+
+.harmonie-circles {
+  display: flex;
+  gap: 6px;
+}
+
+.harmonie-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.harmonie-circle.main-interactive {
+  cursor: pointer;
+}
+
+.harmonie-circle.selected-active {
+  /* Will be set via JS — full color 1 */
+}
+
+.harmonie-circle.selected-inactive {
+  /* Outline only — Color 1 outline, transparent fill */
+  background: transparent !important;
+}
+
+/* ============================================
+   Responsive — Desktop
+   ============================================ */
+@media (min-width: 600px) {
+  body {
+    max-width: 520px;
+    padding: 0 32px 60px;
+  }
+
+  .geschmack-quarters {
+    gap: 8px;
+  }
+
+  .quarter-svg {
+    max-width: 72px;
+  }
+
+  .molekuele-grid {
+    max-width: 340px;
+    gap: 20px;
+  }
+
+  .harmonie-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .splash-circles {
+    grid-template-columns: repeat(3, 32px);
+    gap: 12px;
+  }
+
+  .splash-circle {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* --- Login Screen --- */
+.login-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background: #ffffff;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 320px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--black);
+  margin-bottom: 48px;
+}
+
+.login-input {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  background: var(--grey-3);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-input:focus {
+  border-color: var(--grey-1);
+}
+
+.login-input::placeholder {
+  color: var(--grey-2);
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #ffffff;
+  background: var(--black);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.login-button:active {
+  opacity: 0.7;
+}
+
+.login-error {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #c0392b;
+  min-height: 20px;
+}

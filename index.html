@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AROMA EXPLORER</title>
+  <meta name="description" content="Aroma Explorer V2 &#x2014; Interaktive Aromen-Datenbank">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- 1. Login View -->
+  <div id="view-login" class="view login-view" style="display:flex">
+    <div class="login-container">
+      <div class="login-title">AROMA EXPLORER</div>
+      <form id="login-form">
+        <input id="login-user" class="login-input" type="text" placeholder="Benutzername" required>
+        <input id="login-pass" class="login-input" type="password" placeholder="Passwort" required>
+        <button type="submit" class="login-button">EINLOGGEN</button>
+      </form>
+      <div id="login-error" class="login-error"></div>
+    </div>
+  </div>
+
+  <!-- 2. Splash View -->
+  <div id="view-splash" class="view" style="display:none">
+    <div id="splash-circles" class="splash-circles"></div>
+  </div>
+
+  <!-- 3. Menu View -->
+  <div id="view-menu" class="view" style="display:none">
+    <div class="menu-container">
+      <div class="menu-option" data-target="theorie">THEORIE</div>
+      <div class="menu-option" data-target="praxis">PRAXIS</div>
+      <div class="menu-option" data-target="zutaten">ZUTATEN</div>
+    </div>
+    <div class="menu-credit">AROMA EXPLORER V2<br>ein Projekt von Daniel Sesselmann</div>
+  </div>
+
+  <!-- 4. Theorie View -->
+  <div id="view-theorie" class="view" style="display:none">
+    <div class="content-page">
+      <div class="page-title">THEORIE</div>
+      <div class="page-body">
+        <p>Aroma ist der entscheidende, aber oft missverstandene Teil unseres Genusserlebnisses. W&#x00E4;hrend wir umgangssprachlich oft nur von Geschmack sprechen, unterscheidet die Wissenschaft strikt zwischen dem, was die Zunge leistet, und dem, was die Nase wahrnimmt.</p>
+
+        <div class="page-subtitle">ORTHONASALES RIECHEN</div>
+        <p>Das Schnuppern vor dem ersten Bissen. Fl&#x00FC;chtige Aromen werden durch die Nase eingeatmet, woraufhin das Gehirn den Duft sofort mit gespeicherten Erfahrungen abgleicht.</p>
+
+        <div class="page-subtitle">RETRONASALES RIECHEN</div>
+        <p>Beim Kauen und Schlucken steigen Aromen aus dem Mund-Rachen-Raum &#x00FC;ber den Nasenr&#x00FC;cken zur Riechschleimhaut auf. Dieser Weg ist entscheidend f&#x00FC;r das Genusserlebnis beim Essen.</p>
+
+        <div class="page-subtitle">DIE 5 GRUNDGESCHMACKSRICHTUNGEN</div>
+        <ul class="taste-list">
+          <li class="taste-item"><strong>S&#x00FC;&#x00DF;</strong> &#x2014; Energie, Zucker, reife Fr&#x00FC;chte</li>
+          <li class="taste-item"><strong>Sauer</strong> &#x2014; Unreife, Fermentation, Frische</li>
+          <li class="taste-item"><strong>Salzig</strong> &#x2014; Mineralien, Elektrolyte</li>
+          <li class="taste-item"><strong>Bitter</strong> &#x2014; Warnsignal, Alkaloide, Gerbstoffe</li>
+          <li class="taste-item"><strong>Umami</strong> &#x2014; Proteine, Glutamat, herzhafte Tiefe</li>
+        </ul>
+
+        <div class="page-subtitle">DIE 9 AROMAGRUPPEN</div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#2F80ED"></span>1 &#x2014; ZITRUS / FRISCH</div>
+          <div class="gruppe-descriptor">Limonenhaltig, frisch, herb</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#6F42C1"></span>2 &#x2014; BLUMIG / PARF&#x00DC;MIERT</div>
+          <div class="gruppe-descriptor">Rosen&#x00E4;hnlich, lavendelig, s&#x00FC;&#x00DF;-blumig</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#C2185B"></span>3 &#x2014; FRUCHTIG / S&#x00DC;SS</div>
+          <div class="gruppe-descriptor">Beerig, tropisch, esterig</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#E91E63"></span>4 &#x2014; W&#x00DC;RZIG / WARM</div>
+          <div class="gruppe-descriptor">Eugenolhaltig, zimtig, nelken&#x00E4;hnlich</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#D32F2F"></span>5 &#x2014; KR&#x00C4;UTERIG / GR&#x00DC;N</div>
+          <div class="gruppe-descriptor">Campherartig, mentholig, krautig</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#F57C00"></span>6 &#x2014; HOLZIG / ERDIG</div>
+          <div class="gruppe-descriptor">Zedernholzartig, vetiverig, erdig</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#B6A400"></span>7 &#x2014; NUSSIG / GER&#x00D6;STET</div>
+          <div class="gruppe-descriptor">Maillard, pyrrazinig, karamellig</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#4CAF50"></span>8 &#x2014; SCHWEFELHALTIG / SCHARF</div>
+          <div class="gruppe-descriptor">Allylhaltig, schwefelig, stechend</div>
+        </div>
+
+        <div class="gruppe-block">
+          <div class="gruppe-title"><span class="gruppe-dot" style="background:#006064"></span>9 &#x2014; TRIGEMINUS</div>
+          <div class="gruppe-descriptor">K&#x00FC;hlend, w&#x00E4;rmend, prickelnd &#x2014; chemischer Hautreiz</div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <div class="page-back-to-menu" data-target="menu">&#x2190; MEN&#x00DC;</div>
+        <div class="page-arrow" data-target="praxis">&#x2192;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Praxis View -->
+  <div id="view-praxis" class="view" style="display:none">
+    <div class="content-page">
+      <div class="page-title">PRAXIS</div>
+      <div class="page-body">
+        <p>In der Praxis geht es darum, die theoretischen Grundlagen der Aromawissenschaft in der K&#x00FC;che anzuwenden. Die Aroma Explorer App hilft dabei, Zutaten nach ihren Molek&#x00FC;lgruppen zu verstehen und gezielt zu kombinieren.</p>
+
+        <div class="page-subtitle">ZUTATEN ENTDECKEN</div>
+        <p>Im Bereich ZUTATEN findest du eine &#x00DC;bersicht aller verf&#x00FC;gbaren Gew&#x00FC;rze und Zutaten. Jede Zutat zeigt dir ihre aktiven Geschmacksrichtungen, Molek&#x00FC;lgruppen, Temperaturverhalten und harmonische Kombinationsm&#x00F6;glichkeiten.</p>
+
+        <div class="page-subtitle">GESCHMACK</div>
+        <p>Die f&#x00FC;nf Grundgeschmacksrichtungen werden als Quadrate dargestellt. Dunkle T&#x00F6;ne zeigen starke Aktivit&#x00E4;t, helle T&#x00F6;ne geringe, und ganz blasse Farben bedeuten keine Aktivit&#x00E4;t.</p>
+
+        <div class="page-subtitle">MOLEK&#x00DC;LE</div>
+        <p>Neun farbige Kreise repr&#x00E4;sentieren die Aromagruppen. Aktive Gruppen sind farbig hervorgehoben. Durch Anklicken werden die enthaltenen Duftmolek&#x00FC;le mit ihren Deskriptoren und L&#x00F6;slichkeitseigenschaften angezeigt.</p>
+
+        <div class="page-subtitle">AROMAENTFALTUNG</div>
+        <p>Das Temperaturdiagramm zeigt, in welchem Bereich die jeweiligen Aromen einer Zutat aktiv sind. Mit dem Schieberegler kann die Temperatur erkundet werden.</p>
+
+        <div class="page-subtitle">HARMONIE</div>
+        <p>Im Harmonie-Bereich k&#x00F6;nnen Aromagruppen ausgew&#x00E4;hlt werden, um Zutaten mit &#x00FC;bereinstimmenden Profilen zu finden &#x2014; ideal f&#x00FC;r kreative Rezeptentwicklung.</p>
+      </div>
+
+      <div class="page-nav">
+        <div class="page-arrow" data-target="theorie">&#x2190;</div>
+        <div class="page-back-to-menu" data-target="menu">MEN&#x00DC; &#x2192;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Zutaten View -->
+  <div id="view-zutaten" class="view" style="display:none">
+    <div class="zutaten-page">
+      <div class="page-back-to-menu back-nav" data-target="menu">&#x2190; MEN&#x00DC;</div>
+      <div class="page-title">ZUTATEN</div>
+      <div class="zutaten-search-wrap">
+        <input id="zutaten-search" class="zutaten-search" type="text" placeholder="Suchen...">
+      </div>
+      <div id="zutaten-grid" class="zutaten-grid"></div>
+    </div>
+  </div>
+
+  <!-- 7. Ingredient View -->
+  <div id="view-ingredient" class="view" style="display:none">
+    <div id="back-to-zutaten" class="back-nav" data-target="zutaten">&#x2190; ZUTATEN</div>
+
+    <header id="app-header">
+      <div class="ingredient-selector">
+        <select id="ingredient-select">
+          <option value="">Zutat w&#x00E4;hlen...</option>
+        </select>
+      </div>
+    </header>
+
+    <h1 id="ingredient-title" class="ingredient-title" style="display:none"></h1>
+    <p id="ingredient-main-desc" class="ingredient-main-desc" style="display:none"></p>
+
+    <!-- Section 1: GESCHMACK -->
+    <div class="listing-section">
+      <div class="section-header">
+        <div class="section-headline">GESCHMACK</div>
+        <span class="toggle-arrow">&#x25BC;</span>
+      </div>
+      <div class="section-description">
+        <p id="geschmack-desc-text"></p>
+      </div>
+      <div class="section-body">
+        <div class="section-body-inner">
+          <div id="geschmack-quarters" class="geschmack-quarters"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: MOLEK&#x00DC;LE -->
+    <div class="listing-section">
+      <div class="section-header">
+        <div class="section-headline">MOLEK&#x00DC;LE</div>
+        <span class="toggle-arrow">&#x25BC;</span>
+      </div>
+      <div class="section-description">
+        <p id="molekuele-desc-text"></p>
+      </div>
+      <div class="section-body">
+        <div class="section-body-inner">
+          <div id="molekuele-circles" class="molekuele-grid"></div>
+          <div id="molekuele-detail" class="molekuele-detail" style="display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: AROMAENTFALTUNG -->
+    <div class="listing-section">
+      <div class="section-header">
+        <div class="section-headline">AROMAENTFALTUNG</div>
+        <span class="toggle-arrow">&#x25BC;</span>
+      </div>
+      <div class="section-description">
+        <p id="aromaentfaltung-desc-text"></p>
+      </div>
+      <div class="section-body">
+        <div class="section-body-inner">
+          <div id="aroma-chart" class="aroma-chart"></div>
+          <div id="aroma-phase-info" class="aroma-phase-info"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: HARMONIE -->
+    <div class="listing-section">
+      <div class="section-header">
+        <div class="section-headline">HARMONIE</div>
+        <span class="toggle-arrow">&#x25BC;</span>
+      </div>
+      <div class="section-description">
+        <p id="harmonie-desc-text"></p>
+      </div>
+      <div class="section-body">
+        <div class="section-body-inner">
+          <div id="harmonie-main" class="harmonie-main"></div>
+          <div id="harmonie-matches" class="harmonie-matches"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
