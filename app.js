@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    AROMA EXPLORER V2 — Main Application
    ============================================ */
 
@@ -85,34 +85,8 @@ async function initApp() {
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   const loginView = document.getElementById('view-login');
-  const loginForm = document.getElementById('login-form');
-  const loginError = document.getElementById('login-error');
-
-  // Check if already authenticated
-  if (sessionStorage.getItem('aroma-auth') === 'true') {
-    loginView.style.display = 'none';
-    initApp();
-    return;
-  }
-
-  // Show login, hide splash
-  document.getElementById('view-splash').style.display = 'none';
-
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const user = document.getElementById('login-user').value;
-    const pass = document.getElementById('login-pass').value;
-    const userHash = await sha256(user);
-    const passHash = await sha256(pass);
-
-    if (userHash === AUTH_USER_HASH && passHash === AUTH_PASS_HASH) {
-      sessionStorage.setItem('aroma-auth', 'true');
-      loginView.style.display = 'none';
-      initApp();
-    } else {
-      loginError.textContent = 'Falscher Benutzername oder Passwort.';
-    }
-  });
+  if (loginView) loginView.style.display = 'none';
+  initApp();
 });
 
 // --- Navigation Setup ---
@@ -484,7 +458,7 @@ function renderMolekuele() {
 
   // Set description
   const descText = document.getElementById('molekuele-desc-text');
-  descText.textContent = 'Hier sind die aktiven Molekülgruppen der Zutat zu sehen. Die ausgeschlüsselten Duftnoten jedes Aromas und dessen Löslichkeit werden duch anklicken sichtbar. (Manche Aromen lösen "zusätzlich" einen trigeminalen Reiz aus, weshalb gelegentlich die 9.Gruppe ohne eigene Moleküle aktiv ist.)';
+  descText.textContent = 'Hier sind die aktiven Molekülgruppen der Zutat zu sehen. Die ausgeschlüsselten Duftnoten jedes Aromas und dessen Löslichkeit werden duch anklicken sichtbar. (Manche Aromen lösen \"zusätzlich\" einen trigeminalen Reiz aus, weshalb gelegentlich die 9.Gruppe ohne eigene Moleküle aktiv ist.)';
 }
 
 function clearMolSelection(grid) {
@@ -939,4 +913,3 @@ function setHarmonieDescription() {
   const descText = document.getElementById('harmonie-desc-text');
   descText.textContent = 'In diesem Abschnitt zeigen gleiche Farben an, dass sich das typischen Aroma dieser Gruppe in Kombination weiter verstärken würde. Sind die Farben im jewels anderen Gewürz nicht enthalten, findet in der Kombination der Gewürze eine gegenseitige Erweiterung um die jeweiligen Aromen statt.';
 }
-
