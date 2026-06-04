@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Aroma Explorer</title>
+  <meta name="description"
+    content="Entdecke die Aromen deiner Zutaten — Geschmack, Moleküle, Aromaentfaltung und Harmonie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ====== LOGIN SCREEN ====== -->
+  <div id="view-login" class="view login-view">
+    <div class="login-container">
+      <h1 class="login-title">AROMA EXPLORER</h1>
+      <form id="login-form" autocomplete="off">
+        <input type="text" id="login-user" class="login-input" placeholder="Benutzername" autocomplete="off" autocapitalize="off">
+        <input type="password" id="login-pass" class="login-input" placeholder="Passwort" autocomplete="off">
+        <button type="submit" class="login-button">ANMELDEN</button>
+        <p id="login-error" class="login-error"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== SPLASH SCREEN ====== -->
+  <div id="view-splash" class="view">
+    <div id="splash-circles" class="splash-circles"></div>
+  </div>
+
+  <!-- ====== MAIN MENU ====== -->
+  <div id="view-menu" class="view" style="display:none;">
+    <div class="menu-container">
+      <div class="menu-option" data-target="theorie-1">THEORIE</div>
+      <div class="menu-option" data-target="praxis-1">PRAXIS</div>
+      <div class="menu-option" data-target="zutaten">ZUTATEN</div>
+    </div>
+    <p class="menu-credit">AROMA – DIE KUNST DES WÜRZENS<br>THOMAS A. VIERICH / THOMAS A. VILGIS</p>
+  </div>
+
+  <!-- ====== THEORIE PAGE 1: AROMA ====== -->
+  <div id="view-theorie-1" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">AROMA</h1>
+      <div class="page-body">
+        <p><strong>Aroma</strong> ist der entscheidende, aber oft missverstandene Teil unseres Genusserlebnisses. Während wir umgangssprachlich oft nur von <strong>Geschmack</strong> sprechen, unterscheidet die Wissenschaft strikt zwischen dem, was die Zunge leistet, und dem, was die Nase wahrnimmt. Das, was wir landläufig als Geschmack bezeichnen, ist somit nur die halbe kulinarische Wahrheit – die andere lautet Aroma.</p>
+        <p>Während unsere Zunge lediglich die <strong>fünf Grundgeschmacksrichtungen</strong> (süß, sauer, salzig, bitter und das herzhafte umami) erkennt, detektiert die Nase über die Riechzellen eine unendliche Vielfalt an <strong>Duftstoffen.</strong></p>
+        <ul class="aroma-list">
+          <li>Ein zentrales Hindernis ist dabei unsere Sprache:</li>
+          <li>Während wir die Grundgeschmäcker der Zunge leicht benennen können, fehlt uns für die Welt der Düfte oft ein geläufiges Vokabular. Unser Sprachzentrum spielt jedoch eine wichtige Rolle bei der Dufterkennung:</li>
+          <li>Kann ein Aroma nicht präzise benannt werden, speichert unser Gehirn diesen Eindruck deutlich ungenauer ab.</li>
+          <li>Dies führt dazu, dass wir Düfte schwerer wiedererkennen oder sie häufig verwechseln.</li>
+          <li>Oft müssen wir uns mit Analogien behelfen – so lässt sich der Duft von Muskatnuss am genauesten einfach als „frisch geriebene Muskatnuss" beschreiben.</li>
+        </ul>
+        <p>Die <strong>Duftmoleküle</strong> (Liganden) erreichen uns auf zwei entscheidenden Wegen:</p>
+        <img src="images/skull-profile.jpg" alt="Skull side profile showing olfactory system" style="width: 100%; max-width: 420px; margin: 20px auto; display: block;">
+        <div style="padding-left:24px">
+          <h3 class="page-subtitle">ORTHONASALES RIECHEN</h3>
+          <p>Das „Schnuppern" vor dem ersten Bissen. Flüchtige Aromen werden durch die Nase eingeatmet, woraufhin das Gehirn den Duft sofort mit gespeicherten Erfahrungen abgleicht, um die Genießbarkeit zu prüfen.</p>
+          <h3 class="page-subtitle">RETRONASALES RIECHEN</h3>
+          <p>Sobald wir kauen, werden im Mund weitere flüchtige Aromen freigesetzt, die über den Rachenraum „rückwärts" zur Riechschleimhaut aufsteigen.</p>
+        </div>
+        <p>Erst durch dieses Zusammenspiel von Geschmack (Zunge), Aroma (Nase) und zusätzlichen Reizen des Trigeminusnervs (wie Schärfe, Temperatur oder Textur) entsteht der komplexe Gesamteindruck einer Speise, der als <strong>Flavour</strong> bezeichnet wird.</p>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="theorie-2">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== THEORIE PAGE 2: GESCHMACK ====== -->
+  <div id="view-theorie-2" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">GESCHMACK</h1>
+      <div class="page-body">
+        <p>Während wir beim <strong>Aroma</strong> über die Nase riechen, ist der <strong>Geschmack</strong> eine reine Angelegenheit der Zunge. Es ist wichtig, diese Unterscheidung beizubehalten, da das Schmecken im Vergleich zur Duftwelt biologisch viel „einfacher" gestrickt ist.</p>
+        <h3 class="page-subtitle">5 GRUNDGESCHMACKSRICHTUNGEN</h3>
+        <p>Auf der Zunge erkennen wir lediglich eine Handvoll Signale, die uns evolutionär beim Überleben geholfen haben:</p>
+        <div class="taste-list">
+          <div class="taste-item"><strong>SÜSS</strong> Ein Wegweiser zu kohlenhydratreicher Energie.</div>
+          <div class="taste-item"><strong>SAUER</strong> Warnt vor unreifen Früchten oder verdorbenen Speisen.</div>
+          <div class="taste-item"><strong>SALZIG</strong> Zeigt lebensnotwendige Mineralstoffe an.</div>
+          <div class="taste-item"><strong>BITTER</strong> Ein Warnsignal für potenzielle Gifte.</div>
+          <div class="taste-item"><strong>UMAMI</strong> Japanisch für „wohlschmeckend"; signalisiert wertvolle Proteine (herzhaft, fleischig).</div>
+        </div>
+        <h3 class="page-subtitle">PAPILLEN UND KNOSPEN</h3>
+        <p>Die Zunge ist kein glatter Muskel, sondern mit verschiedenen Papillen übersät, in deren Wänden die Geschmacksknospen sitzen. Diese bestehen aus Sinneszellen mit feinsten Fortsätzen (Mikrovilli), auf denen sich widerum die eigentlichen Geschmacksrezeptoren befinden.</p>
+        <img src="images/papillen-tongue.jpg" alt="Zunge mit Blatterpapille, Pilzpapille und Wallpapille" style="width: 100%; max-width: 420px; margin: 20px auto; display: block;">
+        <ul class="aroma-list"><li>Entgegen früherer Annahme gibt es <strong>keine</strong> speziellen Zonen für einzelne Geschmacksrichtungen; wir schmecken alles auf der gesamten Zunge!</li></ul>
+        <h3 class="page-subtitle">SCHLÜSSEL-SCHLOSS-PRINZIP</h3>
+        <p>Damit wir etwas schmecken können, müssen die Stoffe zunächst im Speichel gelöst werden. Sie werden dann an den Rezeptoren vorbeigespült und docken dort nach dem Schlüssel-Schloss-Prinzip an:</p>
+        <p>Nur wenn ein Molekül (Schlüssel) perfekt in den zuständigen Rezeptor (Schloss) passt, wird ein Signal an das Gehirn gesendet.</p>
+        <ul class="aroma-list">
+          <li><strong>SALZ</strong> und <strong>SAUER</strong> werden hierbei über einfache Ionenkanäle erkannt.</li>
+          <li><strong>SÜSS, UMAMI</strong> und <strong>BITTER</strong> erfordern komplexere Rezeptor-Proteine.</li>
+        </ul>
+        <h3 class="page-subtitle">TEMPERATUREINFLUSS</h3>
+        <p>Die Intensität, mit der wir diese Reize wahrnehmen, ist stark temperaturabhängig (der sogenannte <strong>thermal taste</strong>).</p>
+        <ul class="aroma-list">
+          <li><strong>SÜSS</strong> und <strong>SALZIG</strong> verstärken sich bei Wärme.</li>
+          <li><strong>SAUER</strong> und <strong>BITTER</strong> werden bei höheren Temperaturen eher schwächer wahrgenommen.</li>
+        </ul>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="theorie-1">◂</div>
+        <div class="page-arrow" data-target="theorie-3">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== THEORIE PAGE 3: MOLEKÜLE ====== -->
+  <div id="view-theorie-3" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">MOLEKÜLE</h1>
+      <div class="page-body">
+        <p>Die Moleküle nach den üblichen funktionellen Gruppen (Alkohol, Ester, Ketone, etc.) einzuordnen erweist sich in der Küche als unpraktikabel.</p>
+        <p>Um die unüberschaubare Vielfalt von zigtausend verschiedenen Duftmolekülen (Liganden) für die Küchenpraxis handhabbar zu machen teilen wir sie deshalb in <strong>acht plus eine charakteristische Molekülgruppe</strong> ein.</p>
+        <p>Diese Einteilung basiert auf zwei Hauptkriterien:<br>
+        der <strong>chemischen Struktur</strong> und der <strong>Flüchtigkeit</strong>.</p>
+        <p>Als Faustregel gilt:<br>
+        Je <strong>niedriger</strong> die Gruppennummer, desto <strong>flüchtiger</strong> ein Duft.<br>
+        Je <strong>höher</strong> die Gruppennummer, desto <strong>weniger flüchtig</strong> und somit hitzebeständiger ein Duft.</p>
+
+        <h3 class="page-subtitle gruppe-section-title">ACHT PLUS EINE AROMAGRUPPEN</h3>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#2F80ED"></span><span>GRUPPE 1: ALIPHATISCHE KOHLENWASSERSTOFFE</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Wachsig, grün, pilzig, fruchtig</span></p>
+          <p>Meist handelt es sich um kurzkettige Fettsäuren und deren Abbauprodukte wie Aldehyde, Ester oder Alkohol. Längerkettige Aldehyde, sowie komplexer aufgebaute Duftstoffe sind ebenfalls enthalten.</p>
+          <p>Die Moleküle dieser Gruppe kommen, in unterschiedlichen Konzentrationen, in vielen verschiedenen Lebensmitteln vor. Sowohl in grünen Äpfeln, in Tomaten oder in Olivenöl als auch in Bananen, Trauben, Ananas oder in (grünen) Tees.</p>
+          <p>Die Duftstoffe dieser Gruppe sind, aufgrund ihres Aufbaus, leicht flüchtig oder wenig stabil. Daher gehören sie zu den <strong>Kopfnoten</strong> der Lebensmittel und Gewürze. Will man die Aromen dieser Gruppe nutzen, sollte man die Lebensmittel <strong>frisch verwenden, nicht erhitzen</strong> und <strong>zügig verspeisen</strong>.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#6F42C1"></span><span>GRUPPE 2: SCHWEFEL (UND SCHWEFEL STICKSTOFFVERBINDUNGEN)</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Schwefelige, stechende Düfte nach Kohl, Zwiebeln und Meerrettich</span></p>
+          <p>Schwefelverbindungen bestimmen den Geruch von <strong>Zwiebelgewächsen</strong>, etwa Lauch, Schnittlauch, Zwiebeln oder den von Knoblauch. Diese typischen Aromen sind mitunter <strong>trigeminal in der Nase stechend</strong> und im Mund schemerzhaft kalt.</p>
+          <p>Andere schwefelige Geruchsstoffe kommen sowohl in verschiedenen Kohlsorten, als auch in Spargel, Mais oder Zucchini vor. In vielen Weinen und auch in Olivenöl sind sie sugar mitverantwortlich für deren Fruchtnoten.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#C2185B"></span><span>GRUPPE 3: ACYCLISCHE TERPENE</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Zitrusartig, fruchtig, blumig</span></p>
+          <p>Sie bestimmen den Großteil der <strong>leicht flüchtigen, blumigen Aromastoffe</strong> in Kräutern und Gewürzen. Moleküle dieser Familie zeichnen sich durch Düfte nach Blume, Rosen und Zitrusfrüchten aus. Wegen ihrer hohen Flüchtigkeit verliert sich ihre Wirkung beim kochen, daher sollten sie <strong>kurz vor dem Fertigstellen</strong> zu gegeben werden.</p>
+          <p>Die Moleküle dieser Gruppe vor bestimmen auch einen Teil des Wacholderdufts und sind unter anderem für die zitronig, harzigen Töne in Kräutersorten wie Basilikum, Lavendel oder Thymianblüten verantwortlich.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#E91E63"></span><span>GRUPPE 4: CYCLISCHE TERPENE</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Balsamisch, kampferartig, holzig</span></p>
+          <p>Die monocyclischen Terpene dieser Gruppe sind noch <strong>recht flüchtig</strong> und sollten, wenn überhaupt, nur kurz mitgekocht werden. Sie tragen vor allem zum Duft <strong>minzartiger Kräuter</strong> bei, spielen aber auch im Aromaspektrum von Kümmel, Fenchel oder Eucalyptus eine große Rolle.</p>
+          <p>Die höher- oder bicyclischen Terpene sind aufgrund ihrer Struktur bereits <strong>etwas beständiger</strong> und machen, mit ihrem schweren Duft, oft die <strong>Herznoten</strong> eines Gewürzes aus.</p>
+          <p>Mit ihren warmer, holzigen, balsamischen und kampferartigen Tönen sind sie häufig das Bindeglied zwischen Kräutern und Gewürzen.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#D32F2F"></span><span>GRUPPE 5: SESQUITERPENE</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Dunkel, schwer-floral</span></p>
+          <p>Durch ihre noch komplexere Struktur sind die Sersquiterpene weniger flüchtig und ihre <strong>warmen, floralen, dunklen Töne</strong> können mit Gewürznelken und Pfeffer oder mit den <strong>wärmebeständigen</strong> Kräutern Rosmarin und Oregano assoziiert werden.</p>
+          <p>Auch die starken, beständigen Düfte von Orangenblütenwasser und Maiglöckchen werden von Molekülen dieser Gruppe definiert. Sie <strong>duften nachhaltig auch im heißen Essen</strong>.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#B6A400"></span><span>GRUPPE 7: PHENYLPROPANOIDE</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Zimt, Muskat &amp; Co.</span></p>
+          <p>Meist riechen sie <strong>intensiver</strong> und <strong>öliger</strong> als die Aromaten. Sie definieren unter anderem das Aroma von Zimt und sind für die warmen, schweren Düfte in Piment, Muskatnuss und Macis verantwortlich. Auch in Lorbeerblättern, Basilikumarten und selbst in Obst wie Bananen oder Kirschen kommen Duftstoffe dieser Gruppe vor.</p>
+          <p><strong>Temperaturen bis zu 90°C werden gut</strong>, auch über längere Zeiträume, <strong>vertragen</strong>.</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#4CAF50"></span><span>GRUPPE 8: HETEROCYCLISCHE VERBINDUNGEN</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Röstaromen, nicht nur aus der Pfanne</span></p>
+          <p><strong>Röstaromen</strong> können von vornherein in einem Kraut oder Gewürz vorkommen (Liebstöckel, Bockshornklee oder Ahornsirup) oder bei praktisch jedem Erhitzungsprozess über die <strong>Maillard-Reaktion</strong> entstehen.</p>
+          <p>Ein nach Heu riechender Aromastoff dieser Gruppe verleiht sowohl welkem Waldmeister, als auch Tonkabohnen ihren charakteristischen Geruch.</p>
+          <p>Die <strong>langanhaltenden Noten</strong> sind selbst <strong>nach Tagen noch zu riechen</strong>.</p>
+          <p class="maillard-note"><strong>Maillard-Reaktion:</strong> Bei dieser sogenannten nichtenzymatischen Bräunungsreaktion bilden sich unter großer, offener Hitze von mehr als 100°C aus den Proteinbestandteilen der Aminosäuren und Zucker rüstig-karamellisiert, nussig und brotrindenartig duftende Aromen (Pyrazine).</p>
+        </div>
+
+        <div class="gruppe-block">
+          <h4 class="gruppe-title"><span class="gruppe-dot" style="background:#006064"></span><span>GRUPPE 9: TRIGEMINUSREIZ</span></h4>
+          <p class="gruppe-descriptor"><span class="gruppe-dot-spacer"></span><span>Nichtflüchtige Verbindungen (Trigeminusreiz)</span></p>
+          <p>Die Moleküle dieser Gruppe sind für einen mehr oder minder starken <strong>trigeminalen Reiz</strong>, in Mund oder Nase, verantwortlich.</p>
+          <p>Damit gemeint sind unter anderem die <strong>brennende Schärfe</strong> von Chilis, der <strong>adstringierende</strong> (zusammenziehende) <strong>Effekt</strong> beim Walnussessen aber auch das Stechen in der Nase beim Verzehr von Knoblauch.</p>
+          <p>Die Moleküle dieser Gruppe sind <strong>nichtflüchtig</strong>.</p>
+          <p>(Genaueres zum Trigeminusnerv noch einmal in unserem PRAXIS Teil).</p>
+        </div>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="theorie-2">◂</div>
+        <div class="page-arrow" data-target="menu">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PRAXIS PAGE 1: FOOD PAIRING UND FOOD COMPLETING ====== -->
+  <div id="view-praxis-1" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">FOOD PAIRING UND FOOD COMPLETING</h1>
+      <div class="page-body">
+        <img src="images/food-pairing.png" alt="Food Pairing und Food Completing Diagramm" style="width: 100%; max-width: 420px; margin: 20px auto; display: block;">
+        <p>Das sogenannte <strong>Food-Pairing</strong> geht von der Idee aus <strong>Gleiches mit Gleichem</strong> zu kombinieren, sodass es zwischen den Lebensmitteln und Kräutern überlappende Bereiche gibt: dasselbe Molekül in zwei Zutaten oder zwei Düfte, die zumindest der gleichen Gruppe zugeteilt sind.<br>
+        Der gemeinsame Nenner wird verstärkt, die Zutaten harmonieren miteinander.</p>
+        <p>Da das reine Paaren nach den gleichen Inhaltsstoffen schnell an seine Grenzen stößt, ist es immer eine Alternative, Gewürze mit Duftstoffen aus jeweils anderen Gruppen zu wählen. Beim <strong>Food-Completing</strong> füllen die Zutaten gewissermaßen die im jeweiligen Gegenüber vorhandene Duftlücke aus, sie <strong>ergänzen</strong> sich also.</p>
+        <p>Auch wenn die obigen Ansätze schnell zu dem Schluss führen können, dass sich demnach alles mit allem kombinieren ließe, so gibt es natürlich dennoch gewisse Grenzen.<br>
+        Einerseits ist bei übertriebener Überlappung die Gefahr einer einseitigen Überwürzung gegeben. Andererseits geht, was für den einen eine reizvolle Kombination ist, dem anderen schon zu weit.</p>
+        <p>Die Theorie ist eine gute Basis, jedoch steht und fällt ein Gericht immer mit den jeweils verwendeten Mengen.<br>
+        Genauso sollte der Geschmack der zu kombinierenden Speise mit einkalkuliert werden.<br>
+        Ein zunächst unmöglich erscheinendes Paar kann zum Beispiel über einen Vermittler zusammengebracht werden.</p>
+        <p>Erst wenn alle <strong>Geruchsparameter</strong> der Komponenten, wie <strong>Geruchsaktivität</strong>, <strong>Temperatur</strong> und <strong>Textur</strong> stimmig sind, kann von einem <strong>perfekten Teller</strong> die Rede sein.</p>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="praxis-2">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PRAXIS PAGE 2: FLÜCHTIGKEIT UND LÖSLICHKEIT ====== -->
+  <div id="view-praxis-2" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">FLÜCHTIGKEIT UND LÖSLICHKEIT</h1>
+      <div class="page-body">
+        <p>Alle Düfte sind mehr oder weniger flüchtig. Nur weil sie aus den Pflanzen austreten und in die Luft schweben, können sie überhaupt in die Nase gelangen und dort gerochen werden.</p>
+        <p>Um der Flüchtigkeit beim Kochen, Braten oder Backen entgegenzuwirken, muss man den Molekülen ein gutes <strong>Lösungsmittel</strong> anbieten. Für den Gebrauch in der Küche qualifizieren sich hierfür lediglich <strong>Wasser</strong>, <strong>Fett</strong> und <strong>Alkohol</strong>.</p>
+        <p>Der Fachbegriff Lösungsmittel umschreibt <strong>die Fähigkeit des Festhaltens</strong>. Die Moleküle der Flüssigkeiten bilden eine Schale um die einzelnen Duftmoleküle und trennen sie dadurch voneinander – daher der Begriff lösen. Diese Schale trennt sie dann auch an der Oberfläche durch einen dünnen Film von der Luft, sodass sie nicht so leicht davon schweben können.</p>
+        <p>Hohe Temperaturen oder lange Lagerung begünstigen das Abdampfen, daher ist es von Vorteil, eine ausreichende Menge an gutem Lösungsmittel während des Garens oder der Lagerung zur Verfügung zu stellen.</p>
+
+        <h3 class="page-subtitle">WASSER</h3>
+        <p>Abgesehen von Salzen, Zucker und Säuren sind Aromen in wässriger Umgebung meist weit flüchtiger als in Fett oder Alkohol gelöst. Ein Käfig aus Wassermolekülen kann die Verbindung zwar im Wasser festhalten, an der Oberfläche jedoch wird er aufgebrochen. Das Molekül ist jetzt dem besseren Lösungsmittel Luft ausgesetzt und verflüchtigt sich.</p>
+
+        <h3 class="page-subtitle">ALKOHOL</h3>
+        <p>Das ideale Lösungsmittel für alle Aromen, die selbst Alkohole sind (erkennbar an Endung -ol) und für kleine, wasserunlösliche oder schwach polare Moleküle. Auch in der Dampfphase in der Luft verbleiben die Moleküle in einer alkoholisierten Umgebung. Die Flüchtigkeit ist deutlich reduziert.</p>
+
+        <h3 class="page-subtitle">FETT</h3>
+        <p>Fetthaltige Lebensmittel wie Öl, Butter, Schmalz und so weiter, lösen viele Aromen, deshalb werden sie gern Geschmacksträger genannt. Weil die Moleküle aus denen Fett aufgebaut ist, sehr groß und schwer sind, können sie beim Kochen kaum verdampfen. Da es keinerlei zusätzliche Anstrengung bedarf, damit Aromen ins Fett übergehen, erweist es sich als <strong>hervorragendes</strong> Lösungsmittel.</p>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="praxis-1">◂</div>
+        <div class="page-arrow" data-target="praxis-3">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== PRAXIS PAGE 3: TRIGEMINUS ====== -->
+  <div id="view-praxis-3" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="content-page">
+      <h1 class="page-title">TRIGEMINUS</h1>
+      <div class="page-body">
+        <p>Während wir über die Zunge die Grundgeschmacksrichtungen und über die Nase die Duftmoleküle wahrnehmen, so ist der <strong>Trigeminusnerv</strong> für die <strong>physische Komponente</strong> beim Essen verantwortlich. Seine Nervenendigungen sind im gesamten Mundraum sowie in der Nase verteilt und registrieren Reize, die eigentlich dem Schutz des Körpers dienen: <strong>Schmerz</strong>, <strong>Temperatur</strong> und <strong>Berührung</strong>.</p>
+        <img src="images/trigeminus-skull.png" alt="Skull showing trigeminus nerve endings" style="width: 100%; max-width: 320px; margin: 20px auto; display: block;">
+        <p>In der Kulinarik wird dieses System durch bestimmte Moleküle „überlistet", die dem Gehirn physikalische Zustände vorgaukeln:</p>
+
+        <h3 class="page-subtitle">THERMISCHE TÄUSCHUNG</h3>
+        <p>Moleküle wie beispielsweise Capsaicin (Chili) oder Piperin (Pfeffer) aktivieren <strong>Hitzerezeptoren</strong>, was zu Schweißausbrüchen und einem brennenden Gefühl führt, obwohl keine reale Verbrennung stattfindet. Umgekehrt regt Menthol (Minze) die <strong>Kälterezeptoren</strong> an und vermittelt eine künstliche Frische.</p>
+
+        <h3 class="page-subtitle">CHEMISCHE IRRITATION</h3>
+        <p>Stoffe wie Senföle (Zwiebel, Lauch) oder Gingerol (Ingwer) werden als stechend oder beißend empfunden. Ein besonderer Reiz ist das <strong>Prickeln</strong> und die leichte <strong>Taubheit</strong> durch Szechuanpfeffer, was auf die spezifische Reizung von Kaliumrezeptoren zurückzuführen ist.</p>
+
+        <h3 class="page-subtitle">ADSTRINGENS</h3>
+        <p>Das <strong>pelzige</strong>, <strong>zusammenziehende</strong> Gefühl von Rotwein oder Walnüssen entsteht nicht direkt durch einen Stoff, sondern durch eine physikalische Reaktion: Gerbstoffe lassen die Proteine im Speichel verklumpen. Der Trigeminusnerv registriert dann sofort die veränderte Schmierfähigkeit des Speichels als raues Empfinden auf der Zunge.</p>
+
+        <img src="images/trigeminus-reize.png" alt="Trigeminus Reize: Warm/Scharf, Brennend, Prickelnd, Adstringierend, Kalt/Kühlend, Beissend, Stechend, Brenzlig" style="width: 100%; max-width: 420px; margin: 20px auto; display: block;">
+        <p>In der Küche kann man mit diesen Reizen also spielen, um <strong>Kontraste</strong> zu setzen – etwa wenn Menthol dem Gehirn „kalt" signalisiert, während die Speise eigentlich heiß ist oder wenn das Prickeln des Szechuanpfeffers dem Dessert den letzten Kick verleiht.
+So kann Essen zum Erlebnis werden.</p>
+      </div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="praxis-2">◂</div>
+        <div class="page-arrow" data-target="menu">▸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== ZUTATEN DIRECTORY ====== -->
+  <div id="view-zutaten" class="view" style="display:none;">
+    <div class="back-nav page-back-to-menu" data-target="menu">◂ MENÜ</div>
+    <div class="zutaten-page">
+      <div class="zutaten-search-wrap">
+        <input type="text" id="zutaten-search" class="zutaten-search" placeholder="Zutat suchen…">
+      </div>
+      <div id="zutaten-grid" class="zutaten-grid"></div>
+      <div class="page-nav">
+        <div class="page-arrow" data-target="menu">◂</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== INGREDIENT VIEW ====== -->
+  <div id="view-ingredient" class="view" style="display:none;">
+    <!-- Back to ZUTATEN -->
+    <div class="back-nav" id="back-to-zutaten" data-target="zutaten">◂ ZUTATEN</div>
+
+    <!-- Ingredient Selector (hidden, kept for functionality) -->
+    <header id="app-header" style="display:none;">
+      <div class="ingredient-selector">
+        <label for="ingredient-select" class="sr-only">Zutat wählen</label>
+        <select id="ingredient-select">
+          <option value="">— Zutat wählen —</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Ingredient Name -->
+    <div id="ingredient-title" class="ingredient-title" style="display:none;"></div>
+    <div id="ingredient-main-desc" class="ingredient-main-desc" style="display:none;"></div>
+
+    <!-- Main Content -->
+    <main id="app-main">
+
+      <!-- GESCHMACK -->
+      <section class="listing-section" id="section-geschmack">
+        <div class="section-header" data-target="geschmack-content">
+          <h2 class="section-headline">GESCHMACK</h2>
+          <span class="toggle-arrow">▾</span>
+        </div>
+        <div class="section-description" id="geschmack-description">
+          <p id="geschmack-desc-text"></p>
+        </div>
+        <div class="section-body" id="geschmack-content">
+          <div id="geschmack-quarters" class="geschmack-quarters"></div>
+        </div>
+      </section>
+
+      <!-- MOLEKÜLE -->
+      <section class="listing-section" id="section-molekuele">
+        <div class="section-header" data-target="molekuele-content">
+          <h2 class="section-headline">MOLEKÜLE</h2>
+          <span class="toggle-arrow">▾</span>
+        </div>
+        <div class="section-description" id="molekuele-description">
+          <p id="molekuele-desc-text"></p>
+        </div>
+        <div class="section-body" id="molekuele-content">
+          <div id="molekuele-circles" class="molekuele-grid"></div>
+          <div id="molekuele-detail" class="molekuele-detail" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- AROMAENTFALTUNG -->
+      <section class="listing-section" id="section-aromaentfaltung">
+        <div class="section-header" data-target="aromaentfaltung-content">
+          <h2 class="section-headline">AROMAENTFALTUNG</h2>
+          <span class="toggle-arrow">▾</span>
+        </div>
+        <div class="section-description" id="aromaentfaltung-description">
+          <p id="aromaentfaltung-desc-text"></p>
+        </div>
+        <div class="section-body" id="aromaentfaltung-content">
+          <div id="aroma-phase-info" class="aroma-phase-info"></div>
+          <div id="aroma-chart" class="aroma-chart"></div>
+        </div>
+      </section>
+
+      <!-- HARMONIE -->
+      <section class="listing-section" id="section-harmonie">
+        <div class="section-header" data-target="harmonie-content">
+          <h2 class="section-headline">HARMONIE</h2>
+          <span class="toggle-arrow">▾</span>
+        </div>
+        <div class="section-description" id="harmonie-description">
+          <p id="harmonie-desc-text"></p>
+        </div>
+        <div class="section-body" id="harmonie-content">
+          <div id="harmonie-main" class="harmonie-main"></div>
+          <div id="harmonie-matches" class="harmonie-matches"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Supabase CDN -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
