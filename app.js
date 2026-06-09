@@ -3,7 +3,7 @@
    ============================================ */
 
 // --- Supabase Init ---
-const SUPABASE_URL = 'https://zugvmqjcfbwwfthsmxeh.supabase.com';
+const SUPABASE_URL = 'https://zugvmqjcfbwwfthsmxeh.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1Z3ZtcWpjZmJ3d2Z0aHNteGVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyMjEzOTMsImV4cCI6MjA5NTc5NzM5M30.bDgObFS3KyzsqQEQhBBJkZBOmQITTosYnb9VsGcWomg';
 
 // The Supabase UMD bundle exposes the createClient function on window.supabase
